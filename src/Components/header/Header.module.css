@@ -1,0 +1,66 @@
+.HeaderMainBox{
+    width: 98.2vw;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.HeaderBox{
+    width: 90vw;
+    height: 60px;
+    background-color: royalblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.logoBox{
+    width: 14vw;
+    height: 50px;
+    color: white;
+    font-size: 40px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    transition: 0.5s;
+}
+.logoBox:hover{
+    transform: scale(95%);
+    transition: 0.5s;
+}
+
+.OptionBox{
+    width: 55vw;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+body{
+    background-color: darkblue;
+}
+
+.LinkButtonsHeader{
+    transition: 0.5s;
+}
+
+.LinkButtonsHeader a {
+    text-decoration-line: none;
+    color: white;
+    font-size: 25px;
+    transition: 0.5s;
+}
+
+.LinkButtonsHeader:hover{
+    transform: scale(95%);
+    transition: 0.5s;
+}
+
+.logoBox a {
+    text-decoration-line: none;
+    color: white;
+    font-size: 40px;
+}

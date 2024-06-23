@@ -1,0 +1,67 @@
+.Posters{
+    width: 15vw;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+.listBox{
+    margin: 0;
+    width: 98vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+
+}
+.listBox:hover{
+    transform: scale(95%);
+    transition: 0.5s;
+}
+.movieList{
+    width: 75vw;
+    height: 47vh;
+    display: flex;
+    background-color: royalblue;
+    justify-content: left;
+    align-items: center;
+    color: white;
+    border-radius: 20px;
+    text-decoration-line: none;
+    transition: 0.5s;
+
+}
+.DescriptionBox{
+    margin: 10px;
+    width: 55vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+}
+
+.PageButtonsBox{
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+
+.PageButtonBox{
+    margin: 10px;
+    width: 30vw;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.PageButtonBox:hover{
+    transform: scale(95%);
+    transition: 0.5s;
+}
+
+.PageNumberBox{
+    width: 40px;
+    font-size: 30px;
+}

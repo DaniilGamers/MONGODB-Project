@@ -1,0 +1,19 @@
+.genresButton{
+    display: flex;
+    width: 70px;
+    height: 30px;
+    background-color: royalblue;
+    color: white;
+    align-items: center;
+border-radius: 10px;
+    margin: 1px;
+    font-size: 10px;
+    text-align: center;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+.genresButton:hover{
+    transform: scale(90%);
+    transition: 0.5s;
+}
