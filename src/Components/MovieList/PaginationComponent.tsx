@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import css from "./MovieList.module.css"
 import {useSearchParams} from "react-router-dom";
 import {useAppSelector} from "../../Redux/store";
@@ -35,9 +35,6 @@ const PaginationComponent = () => {
     }
 
     const navigateNextPage = () => {
-        // if (currentPage !== 1) {
-        //     dispatch(movieActions.onNavigateNext())
-        // }
 
         const page = query.get('page')
 

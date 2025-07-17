@@ -17,7 +17,7 @@ const MoviesListCard = () => {
     useEffect(() => {
 
         dispatch(movieActions.getMovies(query.get('page') || '1'))
-    }, [query]);
+    }, [dispatch, query]);
 
     return (
         <div>
