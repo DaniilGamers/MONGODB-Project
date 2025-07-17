@@ -6,7 +6,6 @@ import {MovieListPageModel} from "../models/MovieListPageModel";
 import {IRes} from "../types/resType";
 import {MovieInfoModel} from "../models/MovieInfoModel";
 import {GenresModel} from "../models/GenresModel";
-import {PaginatedPageModel} from "../models/PaginatedPageModel";
 
 const axiosInstance = axios.create({
     baseURL: baseURl,

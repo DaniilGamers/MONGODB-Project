@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import css from "./movieInfo.module.css";
 import {useParams} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../../Redux/store";
+import {useAppDispatch, useAppSelector} from "../../Redux/Store/store";
 import {movieActions} from "../../Redux/slices/movieSlice";
 
 const PosterPreview = () => {

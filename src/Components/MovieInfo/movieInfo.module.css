@@ -78,4 +78,36 @@ width: 91vw;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+
+#genreBoxMain{
+
+    width: 85vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.genreButton{
+
+    width: 12vw;
+    height: 5vh;
+    background-color: royalblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: 0.5s;
+    color: white;
+    text-decoration-line: none;
+
+}
+.genreButton:hover{
+
+    transform: scale(90%);
+    transition: 0.5s;
+
 }

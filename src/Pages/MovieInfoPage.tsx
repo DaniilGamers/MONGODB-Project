@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import MovieInfo from "../Components/MovieInfo/MovieInfo";
-import {useAppDispatch} from "../Redux/store";
+import {useAppDispatch} from "../Redux/Store/store";
 import {movieActions} from "../Redux/slices/movieSlice";
 import {useParams} from "react-router-dom";
 

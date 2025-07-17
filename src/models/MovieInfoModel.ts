@@ -17,5 +17,5 @@ export interface MovieInfoModel{
     title: string,
     status: string,
     video: boolean,
-    genres: GenresModel[] | null
+    genres: GenresModel[]
 }

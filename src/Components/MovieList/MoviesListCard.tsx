@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
-import {useAppDispatch, useAppSelector} from "../../Redux/store";
+import {useAppDispatch, useAppSelector} from "../../Redux/Store/store";
 import {movieActions} from "../../Redux/slices/movieSlice";
 import css from "./MovieList.module.css";
 import {useNavigate, useSearchParams} from "react-router-dom";
-import PaginationComponent from "./PaginationComponent";
+import PaginationComponent from "./Pagination/PaginationComponent";
 
 const MoviesListCard = () => {
 

@@ -7,7 +7,8 @@ const urls = {
     },
     genres:{
         base: `/genre/movie/list`,
-        byId: (id: number): string => urls.movies.byId + '/' + id
+        movieBase: '/discover/movie',
+        byId: (id: number): string => urls.genres.movieBase + `?with_genres=${id}`
     },
     movieInfo: {
         base: '/movie',

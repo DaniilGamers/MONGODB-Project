@@ -1,7 +1,7 @@
 import React from 'react';
-import css from "./MovieList.module.css"
+import css from "../MovieList.module.css"
 import {useSearchParams} from "react-router-dom";
-import {useAppSelector} from "../../Redux/store";
+import {useAppSelector} from "../../../Redux/Store/store";
 
 const PaginationComponent = () => {
 

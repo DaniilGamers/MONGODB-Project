@@ -1,7 +1,7 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {movieReducer} from "./slices/movieSlice";
+import {movieReducer} from "../slices/movieSlice";
 import {useDispatch, useSelector} from "react-redux";
-import {genreReducer} from "./slices/genreSlice";
+import {genreReducer} from "../slices/genreSlice";
 
 const store = configureStore({
     reducer: {
