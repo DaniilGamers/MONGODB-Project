@@ -12,7 +12,7 @@ const PosterPreview = () => {
     const {infoMovie} = useAppSelector(state => state.movie);
     useEffect(() => {
         if (id) {
-            dispatch(movieActions.loadMovieById(id));
+            dispatch(movieActions.getMovieById(id));
         }
     }, [dispatch, id]);
 

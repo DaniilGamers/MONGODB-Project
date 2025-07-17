@@ -12,7 +12,7 @@ const MovieInfoPage = () => {
 
     useEffect(() => {
         if (id){
-        dispatch(movieActions.loadMovieInfoById(id))
+        dispatch(movieActions.getMovieInfoById(id))
 
         }
     }, [id]);

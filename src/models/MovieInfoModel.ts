@@ -1,3 +1,5 @@
+import {GenresModel} from "./GenresModel";
+
 export interface MovieInfoModel{
     id: number,
     original_language: string,
@@ -15,5 +17,5 @@ export interface MovieInfoModel{
     title: string,
     status: string,
     video: boolean,
-    genres: string[]
+    genres: GenresModel[] | null
 }

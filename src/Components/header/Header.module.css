@@ -1,5 +1,5 @@
 .HeaderMainBox{
-    width: 98.2vw;
+    width: 98vw;
     height: 60px;
     display: flex;
     align-items: center;
@@ -41,6 +41,7 @@
 
 body{
     background-color: darkblue;
+    margin: 0;
 }
 
 .LinkButtonsHeader{

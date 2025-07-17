@@ -4,18 +4,20 @@ import {useAppDispatch, useAppSelector} from "../../Redux/store";
 import {movieActions} from "../../Redux/slices/movieSlice";
 import css from "./movieInfo.module.css"
 import PosterPreview from "./PosterPreview";
+import {genreActions} from "../../Redux/slices/genreSlice";
 
 const MovieInfo = () => {
 
     let {id} = useParams();
     const dispatch = useAppDispatch();
 
-    const {genre} = useAppSelector(state => state.genre);
+    const {genres} = useAppSelector(state => state.genre);
     const {infoMovie} = useAppSelector(state => state.movie);
     useEffect(() => {
         if (id) {
-            dispatch(movieActions.loadMovieById(id));
+            dispatch(movieActions.getMovieById(id));
         }
+        dispatch(genreActions.loadGenres())
     }, [dispatch, id]);
 
     return (

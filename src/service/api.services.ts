@@ -6,6 +6,7 @@ import {MovieListPageModel} from "../models/MovieListPageModel";
 import {IRes} from "../types/resType";
 import {MovieInfoModel} from "../models/MovieInfoModel";
 import {GenresModel} from "../models/GenresModel";
+import {PaginatedPageModel} from "../models/PaginatedPageModel";
 
 const axiosInstance = axios.create({
     baseURL: baseURl,
@@ -18,7 +19,7 @@ axiosInstance.interceptors.request.use(request => {
 })
 
 const movieService = {
-    getMovies:():IRes<MovieListPageModel<movieModel>> => axiosInstance.get(urls.movies.base),
+    getMovies:(page: string):IRes<MovieListPageModel<movieModel>> => axiosInstance.get(urls.movies.base(+page)),
     getById:(id: string):IRes<movieModel> => axiosInstance.get(urls.movies.byId(+id)),
 
 

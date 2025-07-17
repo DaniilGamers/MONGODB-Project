@@ -3,7 +3,7 @@ import {useAppDispatch, useAppSelector} from "../Redux/store";
 import {genreActions} from "../Redux/slices/genreSlice";
 import css from "../Components/genres_styles/genres.module.css"
 import cssList from "../Components/MovieList/MovieList.module.css"
-import {Link, useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams, useSearchParams} from "react-router-dom";
 import {movieActions} from "../Redux/slices/movieSlice";
 import PaginationComponent from "../Components/MovieList/PaginationComponent";
 
@@ -12,6 +12,8 @@ const MovieThroughGenresPage = () => {
     let {id} = useParams();
 
     const navigate = useNavigate();
+
+    const [query] = useSearchParams()
 
     const dispatch = useAppDispatch()
 
@@ -25,10 +27,12 @@ const MovieThroughGenresPage = () => {
 
     useEffect(() => {
 
-            dispatch(movieActions.loadMovies())
+            dispatch(movieActions.getMovies(query.get('page') || '1'))
 
 
     }, [dispatch]);
+
+
 
     return ( <div>
             <div style={{display: "flex", justifyContent: "center", width: 1510, height: 155}}>

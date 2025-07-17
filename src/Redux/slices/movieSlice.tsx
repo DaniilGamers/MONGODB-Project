@@ -1,7 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {movieInfoService, movieService} from "../../service/api.services";
 import {movieModel} from "../../models/movieModel";
-import {MovieListPageModel} from "../../models/MovieListPageModel";
 import {MovieInfoModel} from "../../models/MovieInfoModel";
 
 interface MovieSliceType {
@@ -9,6 +8,9 @@ interface MovieSliceType {
     movie: movieModel | null;
     movieInfo: MovieInfoModel[];
     infoMovie: MovieInfoModel | null;
+    page: number
+    total_Results: number;
+    total_Pages: number
 
 }
 
@@ -16,22 +18,25 @@ let movieInitState: MovieSliceType = {
     movies: [],
     movie: null,
     movieInfo: [],
-    infoMovie: null
+    infoMovie: null,
+    page: 0,
+    total_Results: 0,
+    total_Pages: 0
 }
 
-const loadMovies = createAsyncThunk<MovieListPageModel<movieModel>, void>(
+const getMovies = createAsyncThunk(
     'movieSlice/loadMovies',
-    async (_, {rejectWithValue})=>{
+    async (page: string, {rejectWithValue})=>{
         try {
-            const {data} = await movieService.getMovies();
-            console.log(data.results)
-            return data
+            const response = await movieService.getMovies(page);
+            console.log(response.data)
+            return response.data
         }catch (e){
             return rejectWithValue(e)
         }
     }
 )
-const loadMovieById = createAsyncThunk(
+const getMovieById = createAsyncThunk(
     'movieSlice/loadMovieById',
     async (id: string, {rejectWithValue})=>{
         try {
@@ -43,7 +48,7 @@ const loadMovieById = createAsyncThunk(
     }
 )
 
-const loadMovieInfoById = createAsyncThunk(
+const getMovieInfoById = createAsyncThunk(
     'movieSlice/loadMovieInfoById',
     async (id: string, {rejectWithValue})=>{
         try {
@@ -62,13 +67,15 @@ const movieSlice = createSlice({
     reducers: {},
     extraReducers: builder =>
         builder
-            .addCase(loadMovies.fulfilled, (state, action) => {
-                state.movies = action.payload.results
+            .addCase(getMovies.fulfilled, (state, action) => {
+                state.movies = action.payload.results;
+
+                state.total_Pages = action.payload.total_pages;
             })
-            .addCase(loadMovieById.fulfilled, (state, action) =>{
+            .addCase(getMovieById.fulfilled, (state, action) =>{
                 state.movie = action.payload
             })
-            .addCase(loadMovieInfoById.fulfilled, (state, action) => {
+            .addCase(getMovieInfoById.fulfilled, (state, action) => {
                 state.infoMovie = action.payload
             })
 })
@@ -77,9 +84,9 @@ const {reducer: movieReducer, actions} = movieSlice;
 
 const movieActions = {
     ...actions,
-    loadMovies,
-    loadMovieById,
-    loadMovieInfoById
+    getMovies,
+    getMovieById,
+    getMovieInfoById,
 }
 
 export {

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../Redux/store";
 import {movieActions} from "../../Redux/slices/movieSlice";
 import css from "./MovieList.module.css";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useSearchParams} from "react-router-dom";
 import PaginationComponent from "./PaginationComponent";
 
 const MoviesListCard = () => {
@@ -12,10 +12,12 @@ const MoviesListCard = () => {
     const {movies} = useAppSelector(state => state.movie)
     const dispatch = useAppDispatch()
 
+    const [query] = useSearchParams()
+
     useEffect(() => {
 
-        dispatch(movieActions.loadMovies())
-    }, [dispatch]);
+        dispatch(movieActions.getMovies(query.get('page') || '1'))
+    }, [query]);
 
     return (
         <div>
@@ -23,7 +25,7 @@ const MoviesListCard = () => {
             {
 
 
-                movies.map(movie => <div  className={css.listBox} key={movie.id}><div className={css.movieList}><div style={{cursor: "pointer"}} className={css.movieList} onClick={() => {navigate(movie.id.toString())}}><br/><img alt={''} className={css.Posters} src={'https://image.tmdb.org/t/p/w500' + movie.poster_path}></img><h3 className={css.DescriptionBox}>{movie.title}<br/>Release date: {movie.release_date}<br/>Languages: {movie.original_language}<br/>Description:<br/>{movie.overview}<br/>Ratings:<br/>{movie.popularity}<br/></h3><br/></div></div></div>)
+                movies.map(movie => <div id={css.listBoxMain} key={movie.id}><div  className={css.listBox}><div className={css.movieList}><div style={{cursor: "pointer"}} className={css.movieList} onClick={() => {navigate(movie.id.toString())}}><br/><img alt={''} className={css.Posters} src={'https://image.tmdb.org/t/p/w500' + movie.poster_path}></img><h3 className={css.DescriptionBox}>{movie.title}<br/>Release date: {movie.release_date}<br/>Languages: {movie.original_language}<br/>Description:<br/>{movie.overview}<br/>Ratings:<br/>{movie.popularity}<br/></h3><br/></div></div></div></div>)
             }
 
             <PaginationComponent/>
