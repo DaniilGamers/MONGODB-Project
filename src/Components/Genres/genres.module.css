@@ -27,3 +27,14 @@
     transform: scale(90%);
     transition: 0.5s;
 }
+
+#listMovieBox{
+
+    width: 100%;
+
+    height: 80vh;
+
+    background-color: #61dafb;
+    overflow: auto;
+
+}

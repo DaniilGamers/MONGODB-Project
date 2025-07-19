@@ -1,11 +1,17 @@
 import React from 'react';
 import GenresList from "../Components/Genres/GenresList";
+import {Outlet} from "react-router-dom";
 
 const GenresPage = () => {
 
-    return (
+    return (<div>
 
         <GenresList/>
+
+            <Outlet/>
+
+
+        </div>
 
     )
 };

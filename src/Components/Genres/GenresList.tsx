@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../Redux/Store/store";
 import {genreActions} from "../../Redux/slices/genreSlice";
-import css from "../genres_styles/genres.module.css";
+import css from "./genres.module.css";
 
 const GenresList = () => {
 
@@ -18,9 +18,9 @@ const GenresList = () => {
     }, [dispatch]);
 
     return ( <div>
-            <div style={{display: "flex", justifyContent: "center", width: "100vw", height: 655}}>
+            <div style={{display: "flex", justifyContent: "center", width: "100vw"}}>
                 {
-                    genres.map(genre => <div key={genre.id}><Link style={{textDecorationLine: "none"}} className={css.genresButton} onClick={() => {navigate(genre.id.toString())}} to={``}>{genre.name}</Link><div></div></div>)
+                    genres.map(genre => <div key={genre.id}><Link style={{textDecorationLine: "none"}} className={css.genresButton} onClick={() => {navigate(genre.id.toString())}} to={`/genres/${genre.id}/?page=1`}>{genre.name}</Link><div></div></div>)
                 }
             </div>
         </div>

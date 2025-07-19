@@ -4,11 +4,12 @@ const urls = {
     movies: {
         base: (page: number): string => `/discover/movie?page=${page}`,
         byId: (id: number): string => urls.movieInfo.base + '/' + id,
+        byGenreId: (genreId: number, page: number): string => `/discover/movie?with_genres=${genreId}&page=${page}`,
+        byKeyword: (keyword: string): string => `/search/keyword?query=${keyword}`,
+        byKeywordId: (keywordId: number, page: number): string => `/discover/movie?with_keywords=${keywordId}&page=${page}`
     },
     genres:{
         base: `/genre/movie/list`,
-        movieBase: '/discover/movie',
-        byId: (id: number): string => urls.genres.movieBase + `?with_genres=${id}`
     },
     movieInfo: {
         base: '/movie',

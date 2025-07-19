@@ -20,6 +20,9 @@ axiosInstance.interceptors.request.use(request => {
 const movieService = {
     getMovies:(page: string):IRes<MovieListPageModel<movieModel>> => axiosInstance.get(urls.movies.base(+page)),
     getById:(id: string):IRes<movieModel> => axiosInstance.get(urls.movies.byId(+id)),
+    getByGenre:(genreId: string, page: string):IRes<MovieListPageModel<movieModel>> => axiosInstance.get(urls.movies.byGenreId(+genreId, +page)),
+    getByKeyword: (keyword: string):IRes<MovieListPageModel<movieModel>> => axiosInstance.get(urls.movies.byKeyword(keyword)),
+    getByKeywordId: (keywordId: string, page: string):IRes<MovieListPageModel<movieModel>> => axiosInstance.get(urls.movies.byKeywordId(+keywordId, +page))
 
 
 }
@@ -29,8 +32,7 @@ const movieInfoService = {
 }
 
 const GenreService = {
-    getGenres:():IRes<GenresListModel<GenresModel>> => axiosInstance.get(urls.genres.base),
-    getById:(id: string):IRes<GenresModel> => axiosInstance.get(urls.genres.byId(+id)),
+    getGenres:():IRes<GenresListModel<GenresModel>> => axiosInstance.get(urls.genres.base)
 }
 
 

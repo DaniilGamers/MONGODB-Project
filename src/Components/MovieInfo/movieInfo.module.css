@@ -5,7 +5,7 @@
 
 .poster{
     margin: 10px;
-    left: 60px;
+    left: 20px;
     bottom: 20px;
     width: 300px;
     position: absolute;
@@ -23,7 +23,7 @@
 }
 
 .InfoWholeBox{
-width: 91vw;
+    width: 91vw;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -41,31 +41,36 @@ width: 91vw;
 
 .box2{
     margin: 10px;
-    width: 26vw;
+    width: 350px;
     height: 38vh;
+
 }
 
 .boxTitleAndInfo{
     margin: 10px;
-    width: 30vw;
-    height: 38vh;
-    background-color: #61dafb;
+    width: 65vw;
+    height: 36vh;
+    display: flex;
+    justify-content: start;
+    align-items: center;
 }
 
 .TitleBox{
     top: 530px;
-    background-color: black;
     width: 90.2vw;
     height: 40.1vh;
     position: absolute;
     opacity: 85%;
     display: flex;
     align-items: center;
+    justify-content: left;
+    text-anchor: middle;
+    background-color: black;
 }
 
 .descriptionBox{
     width: 90.2vw;
-    height: 40vh;
+    height: 70vh;
     background-color: black;
     display: flex;
     align-items: center;
@@ -74,7 +79,7 @@ width: 91vw;
 
 .box3{
     width: 85vw;
-    height: 35vh;
+    height: 40vh;
     display: flex;
     align-items: center;
     justify-content: center;

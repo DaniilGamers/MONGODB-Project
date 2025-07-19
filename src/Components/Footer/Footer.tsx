@@ -1,10 +1,10 @@
 import React from 'react';
-import css from '../header/Header.module.css'
+import css from '../Footer/footer.module.css'
 
 const Header = () => {
     return (
-        <div className={css.HeaderMainBox}>
-            <div className={css.HeaderBox}>
+        <div className={css.FooterMainBox}>
+            <div className={css.FooterBox}>
                 <div className={css.logoBox}>MONGODB</div>
                 <div className={css.OptionBox}>
                     <ul style={{justifyContent: "right", display: "flex", color: "white", width: 480}}>Test Project Site by Daniel</ul>

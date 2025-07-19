@@ -15,7 +15,7 @@ const MovieInfoPage = () => {
         dispatch(movieActions.getMovieInfoById(id))
 
         }
-    }, [id]);
+    }, [dispatch,id]);
 
     return (
         <div>

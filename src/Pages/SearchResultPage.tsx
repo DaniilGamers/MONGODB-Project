@@ -1,16 +1,12 @@
 import React from 'react';
 import MoviesList from "../Components/MovieList/MoviesList";
 
-const MovieThroughGenresPage = () => {
-
+const SearchResultPage = () => {
     return (
         <div>
-
             <MoviesList/>
-
         </div>
-
     );
 };
 
-export default MovieThroughGenresPage;
+export default SearchResultPage;

@@ -24,7 +24,7 @@ const MovieInfo = () => {
     return (
         <div>
             {
-                infoMovie && <div className={css.box}>
+                infoMovie && <div className={css.box} key={infoMovie.id}>
                     <div className={css.InfoWholeBox}>
                         <img className={css.backgroundImage} alt={''} src={'https://image.tmdb.org/t/p/w500' + infoMovie.backdrop_path}>
 
@@ -36,7 +36,7 @@ const MovieInfo = () => {
                             <div className={css.box2}>
 
                             </div>
-                            <div style={{color: "white", fontSize: 28, margin: 30}}>{infoMovie.title} --- ({infoMovie.original_title})
+                            <div style={{color: "white", fontSize: 28}} className={css.boxTitleAndInfo}>{infoMovie.title} --- ({infoMovie.original_title})
                                 <br/>Runtime: {infoMovie.runtime}h
                                 <br/>Language: {infoMovie.origin_country}
                                 <br/>Rating:<br/>{infoMovie.popularity}
@@ -47,9 +47,9 @@ const MovieInfo = () => {
                                 <br/>{infoMovie.overview}<br/>
                                 <br/>Genres<br/>
                                 <div  id={css.genreBoxMain}>{infoMovie.genres.map(genre =>
-                                    <div>
+                                    <div key={genre.id}>
                                         <div>
-                                            <Link className={css.genreButton} onClick={() => {navigate(genre.id.toString())}} to={`/genres/${genre.id}`}>{genre.name}</Link>
+                                            <Link className={css.genreButton} onClick={() => {navigate(genre.id.toString())}} to={`/genres/${genre.id}/?page=1`}>{genre.name}</Link>
                                         </div>
                                     </div>)}</div>
                             </div>
