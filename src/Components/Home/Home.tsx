@@ -9,7 +9,7 @@ const Home = () => {
         <div id={css.welcomeBox} data-theme={isDark ? 'dark' : 'light'} onChange={toggleTheme}>
             <p>Welcome!!!</p>
             <p style={{fontSize: 40}}>Here you can find films which you want to check out<br/>
-            Through genre selection or search through<br/>
+            Through genre selection or search through.<br/>
             Make yourself cozy here :)</p>
         </div>
     );
