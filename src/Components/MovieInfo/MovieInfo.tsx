@@ -4,6 +4,7 @@ import {useAppDispatch, useAppSelector} from "../../Redux/Store/store";
 import {movieActions} from "../../Redux/slices/movieSlice";
 import css from "./movieInfo.module.css"
 import PosterPreview from "./PosterPreview";
+import StarsRating from "../StarsRating/StarsRating";
 
 const MovieInfo = () => {
 
@@ -39,7 +40,7 @@ const MovieInfo = () => {
                             <div style={{color: "white", fontSize: 28}} className={css.boxTitleAndInfo}>{infoMovie.title} --- ({infoMovie.original_title})
                                 <br/>Runtime: {infoMovie.runtime}h
                                 <br/>Language: {infoMovie.origin_country}
-                                <br/>Rating:<br/>{infoMovie.popularity}
+                                <br/>Rating:<br/><StarsRating rating={infoMovie.vote_average}/>
                             </div>
                         </div>
                         <div style={{color: "white", fontSize: 25, textAlign: "center"}} className={css.descriptionBox}>

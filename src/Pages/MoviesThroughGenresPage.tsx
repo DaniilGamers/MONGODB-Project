@@ -1,7 +1,7 @@
 import React from 'react';
 import MoviesList from "../Components/MovieList/MoviesList";
 
-const MovieThroughGenresPage = () => {
+const MoviesThroughGenresPage = () => {
 
     return (
         <div>
@@ -13,4 +13,4 @@ const MovieThroughGenresPage = () => {
     );
 };
 
-export default MovieThroughGenresPage;
+export default MoviesThroughGenresPage;

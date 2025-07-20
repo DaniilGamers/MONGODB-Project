@@ -17,5 +17,8 @@ export interface MovieInfoModel{
     title: string,
     status: string,
     video: boolean,
-    genres: GenresModel[]
+    genres: GenresModel[],
+    vote_average: number,
+    vote_count: number
+
 }

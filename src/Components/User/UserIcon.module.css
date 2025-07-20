@@ -1,0 +1,52 @@
+.userBox{
+
+    width: 180px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 25px;
+
+}
+
+.userCircle{
+
+    width: 45px;
+    height: 45px;
+    border-radius: 50px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.userCircle div .head{
+
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background-color: gray;
+    position: relative;
+    z-index: 2;
+    top: -13px;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+
+}
+
+.userCircle div .body{
+
+    width: 40px;
+    height: 65px;
+    border-radius: 50px;
+    background-color: gray;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 30px;
+
+
+}

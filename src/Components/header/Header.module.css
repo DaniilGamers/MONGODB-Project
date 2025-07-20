@@ -9,22 +9,24 @@
 .HeaderBox{
     width: 95vw;
     height: 60px;
-    background-color: royalblue;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    background-color: var(--header-color);
+    color: var(--header-text-color);
+    transition: 0.5s;
 }
 
 .logoBox{
     width: 14vw;
     height: 50px;
-    color: white;
     font-size: 40px;
     display: flex;
     justify-content: left;
     align-items: center;
     transition: 0.5s;
 }
+
 .logoBox:hover{
     transform: scale(95%);
     transition: 0.5s;
@@ -35,13 +37,8 @@
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
-}
-
-body{
-    background-color: darkblue;
-    margin: 0;
 }
 
 .LinkButtonsHeader{
@@ -50,7 +47,7 @@ body{
 
 .LinkButtonsHeader a {
     text-decoration-line: none;
-    color: white;
+    color: var(--header-text-color);
     font-size: 25px;
     transition: 0.5s;
 }
@@ -62,6 +59,21 @@ body{
 
 .logoBox a {
     text-decoration-line: none;
-    color: white;
+    color: var(--header-text-color);
     font-size: 40px;
+    transition: 0.5s;
+}
+
+[data-theme="dark"]{
+
+    --header-color: royalBlue;
+    --header-text-color: white;
+
+}
+
+[data-theme="light"]{
+
+    --header-color: lightblue;
+    --header-text-color: black;
+
 }

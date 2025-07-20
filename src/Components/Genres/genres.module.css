@@ -1,26 +1,22 @@
 #genresBoxMain{
 
     width: 99vw;
-    height: 4.5vh;
+    height: 8vh;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 
 }
 
 
 .genresButton{
     display: flex;
-    width: 70px;
-    height: 30px;
-    background-color: royalblue;
-    color: white;
     align-items: center;
     border-radius: 10px;
     margin: 1px;
-    font-size: 10px;
+    font-size: 18px;
     text-align: center;
     justify-content: center;
-    transition: 0.5s;
 }
 
 .genresButton:hover{
@@ -31,10 +27,12 @@
 #listMovieBox{
 
     width: 100%;
-
-    height: 80vh;
-
-    background-color: #61dafb;
-    overflow: auto;
+    height: 80.4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-text-color);
+    font-size: 55px;
+    transition: 0.5s;
 
 }

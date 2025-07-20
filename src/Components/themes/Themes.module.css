@@ -1,0 +1,66 @@
+:root{
+    --main-color: darkblue;
+    --main-text-color: white;
+    --header-color: royalBlue;
+    --header-text-color: white;
+    --moviecard-color: royalBlue;
+    --moviecard-text-color: white;
+    --page-button-color: royalblue;
+    --page-button-text-color: white;
+    --genre-buttons-color: royalblue;
+    --genre-buttons-text-color: white;
+    --search-text-color: white;
+
+}
+
+.ToggleBox{
+
+    width: 14vw;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+
+}
+
+.circle {
+    display: flex;
+    flex-direction: row-reverse;
+
+    justify-content: space-evenly;
+    align-items: center;
+    width: 15vw;
+
+    .toggle {
+
+        visibility: hidden;
+    }
+
+    .toggle + label{
+        display: flex;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .toggle + label::after{
+        content: "";
+        width: 45px;
+        height: 45px;
+        border-radius: 50px;
+        background-color: blue;
+        transition: 0.5s;
+
+    }
+    .toggle:checked + label::after{
+        content: "";
+        width: 45px;
+        height: 45px;
+        border-radius: 50px;
+        background-color: orange;
+        transition: 0.5s;
+
+    }
+
+}

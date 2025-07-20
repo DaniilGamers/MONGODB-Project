@@ -43,16 +43,18 @@
     margin: 10px;
     width: 350px;
     height: 38vh;
+    display: flex;
 
 }
 
 .boxTitleAndInfo{
     margin: 10px;
     width: 65vw;
-    height: 36vh;
+    height: 30vh;
     display: flex;
     justify-content: start;
-    align-items: center;
+    align-items: start;
+    flex-direction: column;
 }
 
 .TitleBox{

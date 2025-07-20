@@ -9,16 +9,17 @@
 .FooterBox{
     width: 95vw;
     height: 60px;
-    background-color: royalblue;
+    background-color: var(--header-color);
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    transition: 0.5s;
 }
 
 .logoBox{
     width: 14vw;
     height: 50px;
-    color: white;
+    color: var(--header-text-color);
     font-size: 40px;
     display: flex;
     justify-content: left;
@@ -32,6 +33,31 @@
 
 .logoBox a {
     text-decoration-line: none;
-    color: white;
+    color: var(--header-text-color);
     font-size: 40px;
+    transition: 0.5s;
+}
+
+.textProject{
+
+    justify-content: right;
+    display: flex;
+    color: var(--header-text-color);
+    width: 480px;
+    transition: 0.5s;
+
+}
+
+[data-theme="dark"]{
+
+    --header-color: royalBlue;
+    --header-text-color: white;
+
+}
+
+[data-theme="light"]{
+
+    --header-color: lightblue;
+    --header-text-color: black;
+
 }

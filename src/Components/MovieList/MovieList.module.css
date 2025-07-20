@@ -4,6 +4,19 @@
     border-radius: 20px;
 }
 
+#LoadingBox{
+
+    width: 100%;
+    height: 84.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    color: var(--main-text-color);
+
+}
+
 #listBoxMain{
 
     width: 100%;
@@ -32,10 +45,10 @@
     width: 75vw;
     height: 47vh;
     display: flex;
-    background-color: royalblue;
+    background-color: var(--moviecard-color);
     justify-content: left;
     align-items: center;
-    color: white;
+    color: var(--moviecard-text-color);
     border-radius: 20px;
     text-decoration-line: none;
     transition: 0.5s;
@@ -64,12 +77,19 @@
     margin: 10px;
     width: 30vw;
     border-radius: 10px;
+    border-color: var(--moviecard-color);
     transition: 0.5s;
+    background-color: var(--moviecard-color);
+    color: var(--moviecard-text-color);
 }
 
 .PageButtonBox:hover{
     transform: scale(98%);
     transition: 0.5s;
+}
+
+.PageButtonBox:disabled{
+    transform: scale(100%);
 }
 
 .PageNumberBox{
@@ -78,4 +98,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
+    border-color: var(--moviecard-color);
+    background-color: var(--moviecard-color);
+    color: var(--moviecard-text-color);
+    transition: 0.5s;
+}
+
+[data-theme="dark"]{
+
+    --moviecard-color: royalblue;
+    --moviecard-text-color: white;
+
+}
+
+[data-theme="light"]{
+
+    --moviecard-color: lightblue;
+    --moviecard-text-color: black;
+
 }

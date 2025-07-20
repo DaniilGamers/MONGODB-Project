@@ -6,10 +6,11 @@ interface Props {
 
     currentPage: number;
     basePath: string;
+    total_pages: number;
 
 }
 
-const PaginationComponent: React.FC<Props> = ({ currentPage, basePath }) => {
+const PaginationComponent: React.FC<Props> = ({ currentPage, basePath, total_pages }) => {
 
     const navigate = useNavigate()
 
@@ -23,12 +24,12 @@ const PaginationComponent: React.FC<Props> = ({ currentPage, basePath }) => {
 
     return (
         <div className={css.PageButtonsBox}>
-            <button style={{backgroundColor: "royalblue", borderColor: "royalblue", color: "white"}} className={css.PageButtonBox} onClick={() => PageHandler(currentPage - 1)} disabled={currentPage <= 1}><h2>prev</h2>
+            <button className={css.PageButtonBox} onClick={() => PageHandler(currentPage - 1)} disabled={currentPage <= 1}><h2>prev</h2>
             </button>
 
-            <button style={{backgroundColor: "royalblue", borderColor: "royalblue", color: "white", borderRadius: 10}} className={css.PageNumberBox} disabled={true}>{currentPage}</button>
+            <button className={css.PageNumberBox} disabled={true}>{currentPage}</button>
 
-            <button style={{backgroundColor: "royalblue", borderColor: "royalblue", color: "white"}} className={css.PageButtonBox} onClick={() => PageHandler(currentPage + 1)}><h2>next</h2>
+            <button className={css.PageButtonBox} onClick={() => PageHandler(currentPage + 1)} disabled={currentPage >= total_pages}><h2>next</h2>
             </button>
         </div>
     );

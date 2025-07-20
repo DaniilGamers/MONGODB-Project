@@ -21,8 +21,7 @@ const movieService = {
     getMovies:(page: string):IRes<MovieListPageModel<movieModel>> => axiosInstance.get(urls.movies.base(+page)),
     getById:(id: string):IRes<movieModel> => axiosInstance.get(urls.movies.byId(+id)),
     getByGenre:(genreId: string, page: string):IRes<MovieListPageModel<movieModel>> => axiosInstance.get(urls.movies.byGenreId(+genreId, +page)),
-    getByKeyword: (keyword: string):IRes<MovieListPageModel<movieModel>> => axiosInstance.get(urls.movies.byKeyword(keyword)),
-    getByKeywordId: (keywordId: string, page: string):IRes<MovieListPageModel<movieModel>> => axiosInstance.get(urls.movies.byKeywordId(+keywordId, +page))
+    getByKeyword: (keyword: string, page: string):IRes<MovieListPageModel<movieModel>> => axiosInstance.get(urls.movies.byKeyword(keyword, +page)),
 
 
 }

@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, isFulfilled} from "@reduxjs/toolkit";
 import {movieInfoService, movieService} from "../../service/api.services";
 import {movieModel} from "../../models/movieModel";
 import {MovieInfoModel} from "../../models/MovieInfoModel";
@@ -12,7 +12,8 @@ interface MovieSliceType {
     page: number;
     total_Results: number;
     total_Pages: number;
-    loading: boolean
+    loading: boolean;
+    error: null
 
 }
 
@@ -25,7 +26,8 @@ let movieInitState: MovieSliceType = {
     page: 0,
     total_Results: 0,
     total_Pages: 0,
-    loading: false
+    loading: false,
+    error: null
 }
 
 const getMovies = createAsyncThunk(
@@ -45,6 +47,7 @@ const getMovieById = createAsyncThunk(
     async (id: string, thunkAPI)=>{
         try {
             const response = await movieService.getById(id)
+            console.log(response.data)
             return thunkAPI.fulfillWithValue(response.data)
         }catch (e) {
             return thunkAPI.rejectWithValue('Something went wrong...')
@@ -57,7 +60,7 @@ const getMoviesByGenre = createAsyncThunk(
     async ({ genreId, page }: { genreId: string, page: string }, thunkAPI)=> {
         try {
             const response = await movieService.getByGenre(genreId, page)
-            console.log(response.data)
+            // console.log(response.data)
             return thunkAPI.fulfillWithValue(response.data)
         }catch (e) {
             return thunkAPI.rejectWithValue('Something went wrong...')
@@ -80,24 +83,11 @@ const getMovieInfoById = createAsyncThunk(
 
 const getMoviesByKeyword = createAsyncThunk(
     'movieSlice/loadMoviesByKeyword',
-    async (keyword: string, thunkAPI)=> {
+    async ({ keyword, page }: { keyword: string, page: string }, thunkAPI)=> {
         try {
-            const response = await movieService.getByKeyword(keyword)
-            console.log(response.data)
+            const response = await movieService.getByKeyword(keyword, page)
+            // console.log(response.data)
             return thunkAPI.fulfillWithValue(response.data)
-        }catch (e) {
-            return thunkAPI.rejectWithValue('Something went wrong...')
-        }
-    }
-)
-
-const getMoviesByKeywordId = createAsyncThunk(
-    'movieSlice/loadMoviesByKeywordId',
-    async ({ keywordId, page }: { keywordId: string, page: string }, thunkAPI)=> {
-        try {
-            const response = await movieService.getByKeywordId(keywordId, page)
-            console.log(response.data.results)
-            return thunkAPI.fulfillWithValue(response.data.results)
         }catch (e) {
             return thunkAPI.rejectWithValue('Something went wrong...')
         }
@@ -112,44 +102,56 @@ const movieSlice = createSlice({
     extraReducers: builder =>
         builder
             .addCase(getMovies.fulfilled, (state, action) => {
+                state.loading = false;
+
                 state.movies = action.payload.results;
 
                 state.total_Pages = action.payload.total_pages;
             })
-            .addCase(getMovies.rejected, () => {
-
+            .addCase(getMovies.rejected, (state) => {
+                state.loading = false;
             })
             .addCase(getMovieById.fulfilled, (state, action) =>{
+                state.loading = false;
+
                 state.movie = action.payload
             })
-            .addCase(getMovieById.rejected, () => {
+            .addCase(getMovieById.rejected, (state) => {
+                state.loading = false;
 
             })
             .addCase(getMovieInfoById.fulfilled, (state, action) => {
+                state.loading = false;
+
                 state.infoMovie = action.payload
             })
-            .addCase(getMovieInfoById.rejected, () => {
-
+            .addCase(getMovieInfoById.rejected, (state) => {
+                state.loading = false;
             })
             .addCase(getMoviesByGenre.fulfilled, (state, action) => {
+                state.loading = false;
+
                 state.movies = action.payload.results
 
-            })
-            .addCase(getMoviesByGenre.rejected, () => {
+                state.total_Pages = action.payload.total_pages;
 
+            })
+            .addCase(getMoviesByGenre.rejected, (state) => {
+                state.loading = false;
             })
             .addCase(getMoviesByKeyword.fulfilled, (state, action) => {
+                state.loading = false;
+
                 state.movies = action.payload.results
 
-            })
-            .addCase(getMoviesByKeyword.rejected, () => {
+                state.total_Pages = action.payload.total_pages;
 
             })
-            .addCase(getMoviesByKeywordId.fulfilled, (state,action) => {
-                state.movies = action.payload
+            .addCase(getMoviesByKeyword.rejected, (state) => {
+                state.loading = false;
             })
-            .addCase(getMoviesByKeywordId.rejected, () => {
-
+            .addMatcher(isFulfilled(getMovies, getMovieById, getMovieInfoById, getMoviesByGenre, getMoviesByKeyword), (state) => {
+                state.loading = true;
             })
 })
 
@@ -161,8 +163,7 @@ const movieActions = {
     getMovieById,
     getMovieInfoById,
     getMoviesByGenre,
-    getMoviesByKeyword,
-    getMoviesByKeywordId
+    getMoviesByKeyword
 }
 
 export {

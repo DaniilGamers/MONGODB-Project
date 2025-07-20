@@ -7,14 +7,24 @@ const Search = () => {
 
     const navigate = useNavigate()
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>)=>{
+    const handleChange = (e: FormEvent<HTMLInputElement>)=>{
         e.preventDefault()
 
-        const form = e.target as HTMLFormElement;
-        const result = form.keyword.value
+        const input = e.target as HTMLInputElement;
+        const result = input.value
 
-        navigate(`/search/${result}/:keywordId/?page=1`)
-        console.log(result)
+        if (result === ''){
+
+            navigate(`/search`)
+
+        }else{
+
+            navigate(`/search/${result}/?page=1`)
+            console.log(result)
+
+        }
+
+
     }
 
     return (
@@ -22,11 +32,11 @@ const Search = () => {
 
             <p>Search</p>
 
-            <form onSubmit={handleSubmit}>
+            <form>
 
                 <label>
 
-                    <input id={css.inputBox} placeholder={'Type here to search for movies'} name={'keyword'} type={"search"}/>
+                    <input id={css.inputBox} placeholder={'Type here to search for movies'} name={'keyword'} type={"search"} onChange={handleChange}/>
 
                 </label>
 

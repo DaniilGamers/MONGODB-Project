@@ -6,21 +6,23 @@ import {GenresListModel} from "../../models/GetGenresModel";
 
 interface GenreSliceType{
     genres: GenresModel[];
+    loading: boolean;
 }
 
 let genreInitState: GenreSliceType = {
     genres: [],
+    loading: false
 }
 
 const loadGenres = createAsyncThunk<GenresListModel<GenresModel>, void>(
     'genreSlice/loadGenres',
-    async (_, {rejectWithValue}) => {
+    async (_, thunkAPI) => {
         try {
             const response = await GenreService.getGenres();
-            console.log(response.data)
-            return response.data
+            // console.log(response.data)
+            return thunkAPI.fulfillWithValue(response.data)
         }catch (e){
-            return rejectWithValue(e)
+            return thunkAPI.rejectWithValue('Something went wrong...')
         }
     }
 )
@@ -32,6 +34,7 @@ const genreSlice = createSlice({
     reducers: {},
     extraReducers: builder =>
         builder
+
             .addCase(loadGenres.fulfilled, (state, action) => {
                 state.genres = action.payload.genres
             })
